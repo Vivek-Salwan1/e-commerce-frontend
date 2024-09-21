@@ -18,7 +18,6 @@ function Navbar() {
         if (resp.data == 'logged out') {
           console.log('logged out')
           navigate('/')
-          window.location.reload()
         }
       })
       .catch(err => console.log(err))
