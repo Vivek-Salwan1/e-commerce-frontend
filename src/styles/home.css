@@ -1,0 +1,42 @@
+.home-page {
+    background-image: url('../imgs/bodybg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -56px;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.home-page h1 {
+    color: #FFFFFF; /* White for strong contrast */
+    margin-bottom: 10px;
+}
+
+.home-page p {
+    color: #E0E0E0; 
+    margin-bottom: 20px;
+}
+
+.home-page button {
+    background-color: #1A73E8;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-page button:hover {
+    background-color: #124a92;
+
+}

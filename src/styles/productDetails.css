@@ -1,0 +1,136 @@
+.product-details-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Product Part Styling */
+.product-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #FFFFFF; /* White background for contrast */
+    border: 1px solid #CCCCCC; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    width: 80%; /* Takes 80% of the page width */
+    max-width: 1200px; /* Maximum width for larger screens */
+    margin-bottom: 40px; /* Space below the product part */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.product-part .image {
+    width: 50%; /* Image takes up half of the product part width */
+    margin-right: 20px; /* Space between image and product information */
+}
+
+.product-part .image img {
+    width: 100%;
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 8px; /* Rounded corners for image */
+}
+
+.product-information {
+    width: 50%; /* Information takes up half of the product part width */
+}
+
+.product-information h3 {
+    font-size: 24px;
+    color: #333333; /* Dark grey text */
+    margin-bottom: 10px;
+}
+
+.product-information p {
+    font-size: 16px;
+    color: #555555; /* Slightly lighter grey for descriptive text */
+    margin-bottom: 20px;
+    line-height: 1.5; /* Better readability */
+}
+
+.actions {
+    display: flex;
+    gap: 20px; /* Space between action buttons */
+}
+
+.actions button {
+    background-color: #003366; /* Dark blue matching the theme */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+    background-color: #0055A5; /* Lighter blue on hover */
+}
+
+/* Related Products Section Styling */
+.releted-products {
+    width: 100%;
+    max-width: 1200px; /* Maximum width for larger screens */
+    text-align: center;
+    margin-top: 20px; /* Space above related products */
+}
+
+.releted-products h1 {
+    font-size: 28px;
+    color: #333333; /* Dark grey text */
+    margin-bottom: 20px;
+}
+
+.releted-products .product-card {
+    background-color: #FFFFFF; /* White background for product cards */
+    border: 1px solid #CCCCCC; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Clip any overflowing content */
+    width: 250px; /* Fixed width for uniform card size */
+    text-align: center;
+    padding: 15px;
+    margin: 0 10px 20px; /* Margin around cards */
+    display: inline-block; /* Align cards in a row */
+}
+
+.releted-products .product-card .image {
+    width: 100%;
+    height: 150px; /* Fixed height for image container */
+    margin-bottom: 10px; /* Space between image and product name */
+}
+
+.releted-products .product-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the container */
+    border-bottom: 1px solid #E0E0E0; /* Subtle separator line */
+}
+
+.releted-products .product-card p {
+    font-size: 16px;
+    color: #333333; /* Dark grey text */
+    margin-bottom: 10px;
+}
+
+.releted-products .actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.releted-products .actions li {
+    list-style: none;
+    padding: 5px 10px;
+    background-color: #003366; /* Button color */
+    color: #FFFFFF;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.releted-products .actions li:hover {
+    background-color: #0055A5; /* Hover color for buttons */
+}

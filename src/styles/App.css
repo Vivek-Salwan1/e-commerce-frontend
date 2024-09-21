@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%; /* Ensures that the root element takes full height */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Makes sure it takes the full height of the viewport */
+}
+
+.content {
+  flex: 1; /* Makes sure this part grows to fill the space between header/navbar and footer */
+}
+
+footer {
+  background-color: #f8f8f8; /* Style your footer */
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+body {
+  background: #f5f5f5 ;
+  font-family: "Gowun Batang", serif;
+  font-weight: 700;
+  overflow-x: hidden;
+  /* color: white; */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+/*   Register........................................ */
+
+.register-page {
+
+  display: flex;
+  justify-content: center;
+  /* Horizontally center */
+  align-items: center;
+  /* Vertically center */
+  height: 100vh;
+  margin-top: -20px;
+
+}
+
+
+.register {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register h2 {
+  text-align: center;
+}
+
+.register label {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.register input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register input:focus {
+  border-color: #003366;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
+}
+
+.register button {
+  background-color: #003366;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register button:hover {
+  background-color: #0055A5;
+}

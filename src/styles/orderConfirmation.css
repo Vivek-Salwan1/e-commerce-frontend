@@ -1,0 +1,137 @@
+.order-confirmation-page {
+    max-width: 100vw;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-confirmation-page h2 {
+    font-size: 28px;
+    color: #003366; /* Dark blue color for main heading */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.order-confirmation-page h3 {
+    font-size: 22px;
+    color: #333333; /* Dark grey color for subheading */
+    margin-bottom: 30px; /* Space below subheading */
+}
+
+/* Styling for confirmed details section */
+.confirmed-details {
+    width: 90%;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space below the confirmed details section */
+}
+
+.confirm-headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Space below headers */
+}
+
+.order-confirmation-page h4 {
+    font-size: 20px;
+    color: #003366; /* Dark blue color */
+    font-weight: 600; /* Slightly bold */
+    padding-bottom: 5px; /* Space between text and underline */
+}
+
+/* Styling for table */
+.confirm-boxes table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between cells */
+    margin-bottom: 20px; /* Space below table */
+}
+
+.confirm-boxes th, .confirm-boxes td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Light grey border */
+    font-size: 16px;
+    color: #333333; /* Dark grey text */
+}
+
+.confirm-boxes th {
+    background-color: #003366; /* Dark blue background for headers */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+}
+
+.confirm-boxes td {
+    background-color: #f9f9f9; /* Light grey background for table rows */
+}
+
+.confirm-boxes td img {
+    max-width: 50px;
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+/* Styling for order ID and address details */
+.orderid-address {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    width: 100%;
+}
+
+.orderid-address li {
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 16px;
+    color: #333333; /* Dark grey text */
+    background-color: #f9f9f9; /* Light grey background for address details */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Button Styling */
+.confirm-actions {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+}
+
+.confirm-actions button {
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-actions .shop-btn{
+    background-color: blue;
+
+    &:hover{
+        background-color: rgb(6, 6, 196);
+    }
+}
+
+
+.confirm-actions .order-btn{
+    background-color: #831fff;
+
+    &:hover{
+        background-color: #620fc7;
+    }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .confirm-headers {
+        flex-direction: column; /* Stack headers vertically */
+        align-items: center;
+    }
+
+    .confirm-boxes table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .confirm-actions {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+}

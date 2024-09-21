@@ -1,0 +1,123 @@
+.cart-page {
+    max-width: 100vw;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between sections */
+}
+
+/* Cart Information Styling */
+.cart-information {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Adjust width as needed */
+    background-color: #ffffff; /* White background for contrast */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 18px;
+    color: #333333; /* Dark grey text */
+    margin-bottom: 20px; /* Space below cart information */
+}
+
+/* Cart Items Styling */
+.cart-items {
+    width: 100%;
+}
+
+.cart-items .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Consistent width for all items */
+    margin: 20px auto; /* Center items horizontally */
+    padding: 15px;
+    background-color: #fff; /* White background for each cart item */
+    border-radius: 8px; /* Rounded corners for item container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.item-img {
+    width: 20%; /* Adjust width as needed */
+    margin-right: 20px;
+}
+
+.item-img img {
+    width: 100%;
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+.item-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    font-size: 16px;
+    color: #555555; /* Slightly lighter grey for text */
+}
+
+.item-name li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+.item-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.item-actions button {
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item-actions button:hover {
+    background-color: #0463a8; /* Lighter blue on hover */
+}
+
+/* Cart Actions Styling */
+.cart-actions {
+    display: flex;
+    gap: 20px; /* Space between checkout and clear cart buttons */
+    margin-top: 20px; /* Space above cart actions */
+}
+
+.cart-actions button {
+    background-color: #0ac10a; /* Dark blue matching theme */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-actions button:hover {
+    background-color: #099009; /* Lighter blue on hover */
+}
+
+.cart-actions .clear-cart-btn{
+    background-color: rgb(18 193 178);
+    
+    &:hover{
+        background-color: rgb(15, 145, 134);
+    }
+}
+
+
+.item-actions .plus-minus{
+    background-color: #0079d1;
+}
+
+.item-actions .remove-btn{
+   background-color: red;
+
+   &:hover{
+    background-color: rgb(196, 4, 4);
+   }
+}

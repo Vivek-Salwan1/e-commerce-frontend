@@ -1,0 +1,108 @@
+
+
+.products-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Filters Section Styling */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 10px 40px;
+    flex-wrap: wrap;
+    color: black; /* White text for better contrast */
+    margin-bottom: 20px; /* Space below filters */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.filters li {
+    list-style: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #fff ; /* Dark blue for active/hover state */
+    color: black;
+    border-radius: 3px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filters li:hover {
+    background-color: #e9e7e7; /* Lighter blue on hover */
+}
+
+/* Products Section Styling */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between product cards */
+    justify-content: center;
+    max-width: 1200px; /* Constrain max width for better alignment */
+    width: 100%;
+}
+
+/* Product Card Styling */
+.product-card {
+    background-color: #fff; /* White background for product cards */
+    border: 1px solid #CCCCCC; /* Light grey border */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Clip any overflowing content */
+    width: 250px; /* Fixed width for uniform card size */
+    text-align: center;
+    padding: 15px;
+}
+
+.product-card .image {
+    width: 100%;
+    height: 150px; /* Fixed height for image container */
+    margin-bottom: 10px; /* Space between image and product name */
+}
+
+.product-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure image covers the container */
+    border-bottom: 1px solid #E0E0E0; /* Subtle separator line */
+}
+
+.product-card p {
+    font-size: 16px;
+    color: black; /* Dark grey text */
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.actions li {
+    list-style: none;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.actions .price{
+    background-color: green;
+
+    &:hover{
+        background-color: rgb(1, 50, 1);
+    }
+}
+
+.actions .addtocart{
+    background-color: #00bfff;
+
+    &:hover{
+        background-color: #03759a;
+    }
+}

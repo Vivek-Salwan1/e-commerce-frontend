@@ -1,0 +1,100 @@
+.shipping-page {
+    max-width: 100vw;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shipping-page h2 {
+    font-size: 28px;
+    color: #333333; /* Dark grey color for text */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    gap: 20px; /* Space between form parts */
+    background-color: #fff; /* White background for form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Form Part 1 Styling */
+.formPart1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px; /* Space between form fields */
+    width: 100%;
+}
+
+.formPart1 label {
+    font-size: 16px;
+    color: #333333; /* Dark grey color for text */
+}
+
+.formPart1 input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333333; /* Dark grey color for text */
+    box-sizing: border-box;
+}
+
+/* Form Part 2 Styling */
+.formPart2 {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.formPart2 textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333333; /* Dark grey color for text */
+    resize: none; /* Disable resizing */
+    box-sizing: border-box;
+}
+
+
+
+
+/* Buttons Styling */
+.form button {
+    background-color: #255FF4;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #0055A5; /* Lighter blue on hover */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .form {
+        width: 100%; /* Full width on smaller screens */
+    }
+    .formPart1 {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+    .formPart2 textarea {
+        height: 80px; /* Adjust height for smaller screens */
+    }
+}
+
+
