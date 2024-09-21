@@ -17,7 +17,7 @@ function EditProduct() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3001/get-productByID/' + productID)
+        axios.get('https://e-commerce-backend-5blo.onrender.com/get-productByID/' + productID)
             .then(resp => {
                 setTitle(resp.data.title)
                 setDesc(resp.data.desc)
@@ -32,7 +32,7 @@ function EditProduct() {
     const handleEdit = (e) => {
         e.preventDefault()
 
-        axios.put('http://localhost:3001/edit-product', {productID, title, desc, category, price, image })
+        axios.put('https://e-commerce-backend-5blo.onrender.com/edit-product', {productID, title, desc, category, price, image })
             .then(resp => {
                 if (resp.data == 'updated') {
                     navigate('/products')

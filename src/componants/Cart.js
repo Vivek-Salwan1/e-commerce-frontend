@@ -111,7 +111,7 @@ function Cart() {
                             <div className="item" key={index}>
 
                                 <div className="item-img">
-                                    <img src={`http://localhost:3001/imgs/${item.image}`} alt="img" />
+                                    <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${item.image}`} alt="img" />
                                 </div>
 
                                 <div className="item-name">

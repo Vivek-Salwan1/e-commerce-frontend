@@ -13,7 +13,7 @@ function Navbar() {
   const handleLogout = () => {
 
     axios.defaults.withCredentials = true
-    axios.post('http://localhost:3001/logout')
+    axios.post('https://e-commerce-backend-5blo.onrender.com/logout')
       .then(resp => {
         if (resp.data == 'logged out') {
           console.log('logged out')

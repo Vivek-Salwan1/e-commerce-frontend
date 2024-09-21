@@ -13,7 +13,7 @@ function UserDashboard() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3001/get-user-orders/' + user.email)
+        axios.get('https://e-commerce-backend-5blo.onrender.com/get-user-orders/' + user.email)
             .then(orders => {
                 if (orders) {
                     setOrders(orders.data)
@@ -71,7 +71,7 @@ function UserDashboard() {
                                         item.orderedItems && item.orderedItems.map((product, index) => {
                                             return (
                                                 <tr>
-                                                    <td><img src={`http://localhost:3001/imgs/${product.image}`} alt="" srcset="" /></td>
+                                                    <td><img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${product.image}`} alt="" srcset="" /></td>
                                                     <td>{product.title}</td>
                                                     <td>{product.price}</td>
                                                     <td>{product.quantity}</td>

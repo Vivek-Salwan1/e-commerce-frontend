@@ -12,7 +12,7 @@ function AllOrders() {
 // console.log('orders',orders.orderedItems[0].title)
   useEffect(() => {
 
-    axios.get('http://localhost:3001/get-all-orders')
+    axios.get('https://e-commerce-backend-5blo.onrender.com/get-all-orders')
       .then(orders => {
         if (orders) {
           console.log('orders',orders)

@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault()
 
     axios.defaults.withCredentials = true
-    axios.post('http://localhost:3001/login', {email,password})
+    axios.post('https://e-commerce-backend-5blo.onrender.com/login', {email,password})
     .then(resp => {
       if(resp.data == 'logged in'){
         navigate('/products')

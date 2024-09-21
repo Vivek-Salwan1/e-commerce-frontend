@@ -8,7 +8,7 @@ function RegisteredUsers() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3001/get-all-users')
+        axios.get('https://e-commerce-backend-5blo.onrender.com/get-all-users')
             .then(resp => setUsers(resp.data))
             .catch(err => console.log(err))
 

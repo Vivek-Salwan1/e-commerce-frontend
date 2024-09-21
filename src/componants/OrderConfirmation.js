@@ -16,7 +16,7 @@ function OrderConfirmation() {
 
     useEffect(()=>{
       
-        axios.get('http://localhost:3001/get-cart-items/'+user.email,)
+        axios.get('https://e-commerce-backend-5blo.onrender.com/get-cart-items/'+user.email,)
         .then(resp => setItems(resp.data.cartItems))
         .catch(err => console.log(err))
 

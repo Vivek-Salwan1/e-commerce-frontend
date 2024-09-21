@@ -22,7 +22,7 @@ function OrderSummary() {
   // console.log('shipping', shippingDetails)
   useEffect(() => {
 
-    axios.get('http://localhost:3001/get-cart-items/'+user.email)
+    axios.get('https://e-commerce-backend-5blo.onrender.com/get-cart-items/'+user.email)
       .then(resp => {
         if(resp.data.cartItems){
           setOrderedItems(resp.data.cartItems)
@@ -44,7 +44,7 @@ function OrderSummary() {
 
   
   const handlePayment = (e) => {
-    axios.post('http://localhost:3001/payment', { 
+    axios.post('https://e-commerce-backend-5blo.onrender.com/payment', { 
         amount: totalPrice * 100, // Converting INR to paise (required by Razorpay)
         currency: 'INR', 
         receipt: 'ksjfjh', 
@@ -74,7 +74,7 @@ function OrderSummary() {
           
   
             // Send payment details to the backend for saving order
-            axios.post('http://localhost:3001/save-order-details', {
+            axios.post('https://e-commerce-backend-5blo.onrender.com/save-order-details', {
               orderID: id,
               amountPaid:totalPrice,
               paymentID: razorpay_payment_id,
@@ -132,7 +132,7 @@ function OrderSummary() {
     setOrderedItems(updatedCart);
 
     // Optionally, send updated data to the server
-    axios.put('http://localhost:3001/update-cart', {
+    axios.put('https://e-commerce-backend-5blo.onrender.com/update-cart', {
         userEmail: user.email,
         updatedCart,
     }).then(resp => console.log('Cart updated'))
@@ -144,7 +144,7 @@ function OrderSummary() {
 
 const handleRemoveFromCart = (itemID) => {
 
-  axios.delete('http://localhost:3001/remove-from-cart/', {
+  axios.delete('https://e-commerce-backend-5blo.onrender.com/remove-from-cart/', {
       params: {
           itemID: itemID,
           userEmail: user.email
@@ -184,7 +184,7 @@ const handleRemoveFromCart = (itemID) => {
 
               return (
                 <tr>
-                  <td><img src={`http://localhost:3001/imgs/${item.image}`} alt="img" /></td>
+                  <td><img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${item.image}`} alt="img" /></td>
                   <td>{item.title}</td>
                   <td>{item.price}</td>
                   <td>{item.quantity}</td> 

@@ -11,7 +11,7 @@ function Products() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3001/get-products')
+        axios.get('https://e-commerce-backend-5blo.onrender.com/get-products')
             .then(resp => {
                 setAllProducts(resp.data)
                 setProducts(resp.data)
@@ -32,7 +32,7 @@ function Products() {
 
         console.log('item in product', itemWithQuantity)
 
-        axios.post('http://localhost:3001/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
+        axios.post('https://e-commerce-backend-5blo.onrender.com/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
@@ -79,7 +79,7 @@ function Products() {
                             <div key={index} className="product-card">
                                 <Link to={`/product-details/${product._id}`}>
                                     <div className="image">
-                                        <img src={`http://localhost:3001/imgs/${product.image}`} alt="img" />
+                                        <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${product.image}`} alt="img" />
                                     </div>
                                     <p>{product.title}</p>
                                 </Link>
