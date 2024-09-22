@@ -28,16 +28,16 @@ function App() {
   useEffect(() => {
 
     axios.defaults.withCredentials = true
-    axios.get('http://localhost:3001/')
+    axios.get('https://e-commerce-backend-5blo.onrender.com/')
       .then(resp => setUser(resp.data))
       .catch(err => console.log(err))
 
   }, [])
 
-  if (!user) return <p>Loading...</p>
+  // if (!user) return <p>Loading...</p>
   return (
     
-    <userContext.Provider value={user}>
+    <userContext.Provider value={{user, setUser}}>
     <BrowserRouter>
       <div className="app-container">
         <Navbar />

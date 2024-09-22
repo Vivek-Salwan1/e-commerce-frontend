@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { userContext } from '../App';
 
 function Login() {
+  const {user, setUser} = useContext(userContext);
 
   const navigate = useNavigate();
 
@@ -17,7 +19,7 @@ function Login() {
     axios.post('https://e-commerce-backend-5blo.onrender.com/login', {email,password})
     .then(resp => {
       if(resp.data == 'logged in'){
-        navigate('/products')
+        navigate('/products')    
         
         window.location.reload()
 
