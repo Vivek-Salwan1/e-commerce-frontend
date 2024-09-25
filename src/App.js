@@ -25,7 +25,7 @@ import Loader from './componants/Loader';
 export const userContext = createContext();
 function App() {
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [user, setUser] = useState(null)
   // const location = useLocation();
 
