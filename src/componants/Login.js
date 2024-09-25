@@ -16,12 +16,13 @@ function Login() {
     e.preventDefault()
 
     axios.defaults.withCredentials = true
-    axios.post('https://e-commerce-backend-5blo.onrender.com/login', {email,password})
+    axios.post('https://e-commerce-backend-production-b06c.up.railway.app/login', {email,password})
     .then(resp => {
-      if(resp.data == 'logged in'){
+      if(resp.data.massage == 'logged in'){
+        console.log('user after login', resp.data.user)
+        setUser(resp.data.user)
         navigate('/products')    
-        
-        window.location.reload()
+            
 
       }else{
         setAck(resp.data)

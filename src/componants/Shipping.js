@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Shipping() {
     const navigate = useNavigate();
-    const user = useContext(userContext)
+    const {user} = useContext(userContext)
 
     // const [fullname, setFullname] = useState('');
     // const [country, setCountry] = useState('');

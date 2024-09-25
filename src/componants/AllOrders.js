@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { userContext } from '../App'
 
 function AllOrders() {
-  const user = useContext(userContext)
+  const {user} = useContext(userContext)
   const [orders, setOrders] = useState([]);
   const [totalOrders, setTotalOrders] = useState([]);
 
@@ -12,7 +12,7 @@ function AllOrders() {
 // console.log('orders',orders.orderedItems[0].title)
   useEffect(() => {
 
-    axios.get('https://e-commerce-backend-5blo.onrender.com/get-all-orders')
+    axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-all-orders')
       .then(orders => {
         if (orders) {
           console.log('orders',orders)

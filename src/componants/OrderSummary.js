@@ -12,17 +12,17 @@ import { SiRazorpay } from "react-icons/si";
 function OrderSummary() {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = useContext(userContext)
+  const {user} = useContext(userContext)
 
   const [orderedItems, setOrderedItems] = useState([]);
   const [totalPrice, setTotal] = useState(Number)
 
 
   const {shippingDetails} = location.state || {}
-  // console.log('shipping', shippingDetails)
+  console.log('user in payment ', user)
   useEffect(() => {
 
-    axios.get('https://e-commerce-backend-5blo.onrender.com/get-cart-items/'+user.email)
+    axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-cart-items/'+user.email)
       .then(resp => {
         if(resp.data.cartItems){
           setOrderedItems(resp.data.cartItems)
@@ -44,7 +44,7 @@ function OrderSummary() {
 
   
   const handlePayment = (e) => {
-    axios.post('https://e-commerce-backend-5blo.onrender.com/payment', { 
+    axios.post('https://e-commerce-backend-production-b06c.up.railway.app/payment', { 
         amount: totalPrice * 100, // Converting INR to paise (required by Razorpay)
         currency: 'INR', 
         receipt: 'ksjfjh', 
@@ -53,7 +53,9 @@ function OrderSummary() {
       })
       .then(resp => {
         const { id, amount, currency } = resp.data; // Extract Razorpay order ID
-  
+       if(!id){
+        console.log('order id  not recieved')
+       }
         const options = {
           key: 'rzp_test_WWZE0bebaftNDP', // Replace with your Razorpay key_id
           amount: amount, // Already in paise from backend
@@ -74,7 +76,7 @@ function OrderSummary() {
           
   
             // Send payment details to the backend for saving order
-            axios.post('https://e-commerce-backend-5blo.onrender.com/save-order-details', {
+            axios.post('https://e-commerce-backend-production-b06c.up.railway.app/save-order-details', {
               orderID: id,
               amountPaid:totalPrice,
               paymentID: razorpay_payment_id,
@@ -101,7 +103,10 @@ function OrderSummary() {
             .catch(err => console.log(err));
           }
         };
-  
+       if(!window.Razorpay){
+        console.log('Razorpay script not loaded');
+        return;
+       }
         const rzp = new window.Razorpay(options);
         rzp.open();
       })
@@ -132,7 +137,7 @@ function OrderSummary() {
     setOrderedItems(updatedCart);
 
     // Optionally, send updated data to the server
-    axios.put('https://e-commerce-backend-5blo.onrender.com/update-cart', {
+    axios.put('https://e-commerce-backend-production-b06c.up.railway.app/update-cart', {
         userEmail: user.email,
         updatedCart,
     }).then(resp => console.log('Cart updated'))
@@ -144,7 +149,7 @@ function OrderSummary() {
 
 const handleRemoveFromCart = (itemID) => {
 
-  axios.delete('https://e-commerce-backend-5blo.onrender.com/remove-from-cart/', {
+  axios.delete('https://e-commerce-backend-production-b06c.up.railway.app/remove-from-cart/', {
       params: {
           itemID: itemID,
           userEmail: user.email
@@ -184,7 +189,7 @@ const handleRemoveFromCart = (itemID) => {
 
               return (
                 <tr>
-                  <td><img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${item.image}`} alt="img" /></td>
+                  <td><img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${item.image}`} alt="img" /></td>
                   <td>{item.title}</td>
                   <td>{item.price}</td>
                   <td>{item.quantity}</td> 

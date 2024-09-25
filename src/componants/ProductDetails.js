@@ -6,7 +6,7 @@ import { userContext } from '../App';
 
 function ProductDetails() {
     const navigate = useNavigate()
-    const user = useContext(userContext)
+    const {user} = useContext(userContext)
     const [product, setProduct] = useState({})
     const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -17,14 +17,14 @@ function ProductDetails() {
 
     useEffect(()=>{
   
-        axios.get('https://e-commerce-backend-5blo.onrender.com/get-productByID/' + productID,)
+        axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-productByID/' + productID,)
         .then(resp => setProduct(resp.data))
         .catch(err => console.log(err))
 
     },[productID])
 
      useEffect(()=>{
-        axios.get('https://e-commerce-backend-5blo.onrender.com/get-related-products', {params: product} )
+        axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-related-products', {params: product} )
         .then(resp => setRelatedProducts(resp.data))
         .catch(err => console.log(err))
 
@@ -41,14 +41,14 @@ function ProductDetails() {
             quantity: 1 // add the quantity property
         };
 
-        axios.post('https://e-commerce-backend-5blo.onrender.com/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
+        axios.post('https://e-commerce-backend-production-b06c.up.railway.app/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
     const handleDelete = (productID) => {
 
-        axios.delete('https://e-commerce-backend-5blo.onrender.com/delete-product/' + productID)
+        axios.delete('https://e-commerce-backend-production-b06c.up.railway.app/delete-product/' + productID)
             .then(resp => {
                 if (resp.data == 'deleted') {
                     navigate('/products')
@@ -65,7 +65,7 @@ function ProductDetails() {
                 product &&
                 <div className="product-part">
                     <div className="image">
-                        <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${product.image}`} alt="img" />
+                        <img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${product.image}`} alt="img" />
                     </div>
                     <div className="product-information">
                         <h3>{product.title}</h3>
@@ -104,7 +104,7 @@ function ProductDetails() {
                         return(
                             <div className="product-card">
                             <div className="image">
-                                <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${item.image}`} alt="" srcset="" />
+                                <img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${item.image}`} alt="" srcset="" />
                             </div>
                             <p>{item.title}</p>
                             <div className="actions">

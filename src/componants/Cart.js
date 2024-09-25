@@ -8,7 +8,7 @@ import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 
 function Cart() {
-    const user = useContext(userContext)
+    const {user} = useContext(userContext)
     const [cart, setCart] = useState([]);
     const [totalQun, setTotalQun] = useState(Number);
     const [totalBill, setTotalBill] = useState(Number);
@@ -16,14 +16,14 @@ function Cart() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/get-cart-items/' + user.email)
+        axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-cart-items/' + user.email)
             .then(resp => setCart(resp.data.cartItems))
             .catch(err => console.log(err))
     }, [])
 
     const handleRemoveFromCart = (itemID) => {
 
-        axios.delete('http://localhost:3001/remove-from-cart/', {
+        axios.delete('https://e-commerce-backend-production-b06c.up.railway.app/remove-from-cart/', {
             params: {
                 itemID: itemID,
                 userEmail: user.email
@@ -62,7 +62,7 @@ function Cart() {
         setCart(updatedCart);
 
         // Optionally, send updated data to the server
-        axios.put('http://localhost:3001/update-cart', {
+        axios.put('https://e-commerce-backend-production-b06c.up.railway.app/update-cart', {
             userEmail: user.email,
             updatedCart,
         }).then(resp => console.log('Cart updated'))
@@ -71,7 +71,7 @@ function Cart() {
 
     const handleClearCart = () => {
 
-        axios.put('http://localhost:3001/clear-cart', { userEmail: user.email })
+        axios.put('https://e-commerce-backend-production-b06c.up.railway.app/clear-cart', { userEmail: user.email })
             .then(resp => {
                 if (resp.data == 'cart cleared') {
                     setCart(null)
@@ -111,7 +111,7 @@ function Cart() {
                             <div className="item" key={index}>
 
                                 <div className="item-img">
-                                    <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${item.image}`} alt="img" />
+                                    <img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${item.image}`} alt="img" />
                                 </div>
 
                                 <div className="item-name">

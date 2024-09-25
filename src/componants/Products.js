@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 import { userContext } from '../App'
 
 function Products() {
-    const user = useContext(userContext);
+    const {user} = useContext(userContext);
     const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([])
 
     useEffect(() => {
 
-        axios.get('https://e-commerce-backend-5blo.onrender.com/get-products')
+        axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-products')
             .then(resp => {
                 setAllProducts(resp.data)
                 setProducts(resp.data)
@@ -32,7 +32,7 @@ function Products() {
 
         console.log('item in product', itemWithQuantity)
 
-        axios.post('https://e-commerce-backend-5blo.onrender.com/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
+        axios.post('https://e-commerce-backend-production-b06c.up.railway.app/add-to-cart', { userEmail: user.email, item: itemWithQuantity })
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
@@ -79,7 +79,7 @@ function Products() {
                             <div key={index} className="product-card">
                                 <Link to={`/product-details/${product._id}`}>
                                     <div className="image">
-                                        <img src={`https://e-commerce-backend-5blo.onrender.com/imgs/${product.image}`} alt="img" />
+                                        <img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${product.image}`} alt="img" />
                                     </div>
                                     <p>{product.title}</p>
                                 </Link>

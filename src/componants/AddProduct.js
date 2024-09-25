@@ -25,7 +25,7 @@ function EditProduct() {
         formData.append('category', category)
         formData.append('image', image)
 
-       axios.post('https://e-commerce-backend-5blo.onrender.com/add-product', formData)
+       axios.post('https://e-commerce-backend-production-b06c.up.railway.app/add-product', formData)
        .then(resp => navigate('/products'))
        .catch(err => console.log(err))
     }

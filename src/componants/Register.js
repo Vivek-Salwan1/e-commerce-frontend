@@ -14,7 +14,7 @@ function Register() {
     const handleRegister = (e) => {
         e.preventDefault();
        
-        axios.post('https://e-commerce-backend-5blo.onrender.com/register-user', {name,email,phone,password})
+        axios.post('https://e-commerce-backend-production-b06c.up.railway.app/register-user', {name,email,phone,password})
         .then(resp => {
             if(resp.data.massage == 'user-exist'){
                 console.log('User already exists')

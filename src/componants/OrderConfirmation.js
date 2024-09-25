@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { GiShoppingBag } from "react-icons/gi";
 
 function OrderConfirmation() {
-    const user = useContext(userContext)
+    const {user} = useContext(userContext)
     const location = useLocation();
     const { amountpaid, orderID, paymentID, paymentStatus, orderDate, name, phone, city, pincode } = location.state || {}; 
 
@@ -16,7 +16,7 @@ function OrderConfirmation() {
 
     useEffect(()=>{
       
-        axios.get('https://e-commerce-backend-5blo.onrender.com/get-cart-items/'+user.email,)
+        axios.get('https://e-commerce-backend-production-b06c.up.railway.app/get-cart-items/'+user.email,)
         .then(resp => setItems(resp.data.cartItems))
         .catch(err => console.log(err))
 
@@ -47,7 +47,7 @@ function OrderConfirmation() {
                             items.map((item, index)=>{
                                 return(
                                     <tr>
-                                    <td><img src={`http://localhost:3001/imgs/${item.image}`} alt="img"/></td>
+                                    <td><img src={`https://e-commerce-backend-production-b06c.up.railway.app/imgs/${item.image}`} alt="img"/></td>
                                     <td>{item.title}</td>
                                     <td>{item.price}</td>
                                     <td>{item.quantity}</td>

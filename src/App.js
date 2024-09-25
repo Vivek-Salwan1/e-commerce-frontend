@@ -1,5 +1,5 @@
 import './styles/App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './componants/Home'
 import Navbar from './componants/Navbar';
 import Register from './componants/Register';
@@ -18,56 +18,87 @@ import axios from 'axios';
 import AddProduct from './componants/AddProduct';
 import AllOrders from './componants/AllOrders';
 import Footer from './componants/Footer';
+import Loader from './componants/Loader';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 
 export const userContext = createContext();
 function App() {
 
-
+  const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
+  // const location = useLocation();
 
   useEffect(() => {
 
     axios.defaults.withCredentials = true
-    axios.get('https://e-commerce-backend-5blo.onrender.com/')
+    axios.get('https://e-commerce-backend-production-b06c.up.railway.app/')
       .then(resp => setUser(resp.data))
       .catch(err => console.log(err))
 
   }, [])
 
-  // if (!user) return <p>Loading...</p>
+  useEffect(() => {
+    axios.interceptors.request.use((config) => {
+      setLoading(true)
+      return config;
+    }, function (error) {
+      // Do something with request error
+      return Promise.reject(error);
+    });
+
+
+    axios.interceptors.response.use((config) => {
+      setLoading(false)
+      return config;
+    }, function (error) {
+      // Do something with request error
+      return Promise.reject(error);
+    });
+
+
+  }, [])
+
+  console.log('user', user)
+  if (!user) return <div style={{display:'flex', justifyContent:'center',}}><p> <ClipLoader/> </p> </div> 
   return (
-    
-    <userContext.Provider value={{user, setUser}}>
-    <BrowserRouter>
-      <div className="app-container">
-        <Navbar />
-  
-        {/* This content area will take up the remaining space */}
-        <div className="content">
-          <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/register' element={<Register />}></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/products' element={<Products />}></Route>
-            <Route path='/product-details/:productID' element={<ProductDetails />}></Route>
-            <Route path='/cart' element={<Cart />}></Route>
-            <Route path='/shipping' element={<Shipping />}></Route>
-            <Route path='/order-summary' element={<OrderSummary />}></Route>
-            <Route path='/order-confirmation' element={<OrderConfirmation />}></Route>
-            <Route path='/user-dashboard' element={<UserDashboard />}></Route>
-            <Route path='/edit-product/:productID' element={<EditProduct />}></Route>
-            <Route path='/registered-users' element={<RegisteredUsers />}></Route>
-            <Route path='/add-product' element={<AddProduct />}></Route>
-            <Route path='/all-orders' element={<AllOrders/>}></Route>
-          </Routes>
+
+    <userContext.Provider value={{ user, setUser }}>
+      <BrowserRouter>
+     
+        <div className="app-container">
+          <Navbar />
+          <Loader show={loading} />
+          {/* This content area will take up the remaining space */}
+          <div className="content">
+            <Routes>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/register' element={<Register />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/products' element={<Products />}></Route>
+              <Route path='/product-details/:productID' element={<ProductDetails />}></Route>
+              <Route path='/cart' element={<Cart />}></Route>
+              <Route path='/shipping' element={<Shipping />}></Route>
+              <Route path='/order-summary' element={<OrderSummary />}></Route>
+              <Route path='/order-confirmation' element={<OrderConfirmation />}></Route>
+              <Route path='/user-dashboard' element={<UserDashboard />}></Route>
+              <Route path='/edit-product/:productID' element={<EditProduct />}></Route>
+              <Route path='/registered-users' element={<RegisteredUsers />}></Route>
+              <Route path='/add-product' element={<AddProduct />}></Route>
+              <Route path='/all-orders' element={<AllOrders />}></Route>
+            </Routes>
+          </div>
+
+          {/* Footer will be at the bottom */}
+          
+             {/* {window.location.pathname !== '/' && <Footer />} */}
+             <Footer/>
+          
+      
         </div>
-  
-        {/* Footer will be at the bottom */}
-        <Footer />
-      </div>
-    </BrowserRouter>
-  </userContext.Provider>
-  
+      </BrowserRouter>
+    </userContext.Provider>
+
   );
 }
 
