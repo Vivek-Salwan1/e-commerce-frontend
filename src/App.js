@@ -19,7 +19,7 @@ import AddProduct from './componants/AddProduct';
 import AllOrders from './componants/AllOrders';
 import Footer from './componants/Footer';
 import Loader from './componants/Loader';
-import ClipLoader from 'react-spinners/ClipLoader';
+// import ClipLoader from 'react-spinners/ClipLoader';
 
 
 export const userContext = createContext();
@@ -60,7 +60,7 @@ function App() {
   }, [])
 
   console.log('user', user)
-  if (!user) return <div style={{display:'flex', justifyContent:'center',}}><p> <ClipLoader/> </p> </div> 
+  if (!user) return <div><p> loading </p> </div> 
   return (
 
     <userContext.Provider value={{ user, setUser }}>
