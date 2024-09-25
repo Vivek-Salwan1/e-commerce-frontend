@@ -39,25 +39,31 @@ function App() {
   }, [])
 
   useEffect(() => {
-    axios.interceptors.request.use((config) => {
-      setLoading(true)
+    // Add a request interceptor
+    const requestInterceptor = axios.interceptors.request.use((config) => {
+      setLoading(true); // Show loader on request start
       return config;
-    }, function (error) {
-      // Do something with request error
+    }, (error) => {
+      setLoading(false); // Hide loader if request fails
       return Promise.reject(error);
     });
-
-
-    axios.interceptors.response.use((config) => {
-      setLoading(false)
-      return config;
-    }, function (error) {
-      // Do something with request error
+  
+    // Add a response interceptor
+    const responseInterceptor = axios.interceptors.response.use((response) => {
+      setLoading(false); // Hide loader on successful response
+      return response;
+    }, (error) => {
+      setLoading(false); // Hide loader if response fails
       return Promise.reject(error);
     });
-
-
-  }, [])
+  
+    // Clean up the interceptors on component unmount
+    return () => {
+      axios.interceptors.request.eject(requestInterceptor);
+      axios.interceptors.response.eject(responseInterceptor);
+    };
+  }, []);
+  
 
   console.log('user', user)
   if (!user) return <div><p> loading </p> </div> 
